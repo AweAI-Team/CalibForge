@@ -1,0 +1,15 @@
+# Local paper drafts and supplementary material
+aibox.pdf
+supplementary_assets/
+
+# Large release archives and trajectories are hosted on Hugging Face
+CalibForge_public.tar.zstd
+trajectories_*.jsonl
+
+# Generated and local files
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+dist/
+build/
