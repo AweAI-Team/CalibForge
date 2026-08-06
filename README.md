@@ -88,7 +88,7 @@ We release two models trained on trajectories distilled from CalibForge tasks:
 
 ## 🤖 CalibForge-Eval
 
-CalibForge-Eval is released as the [Terminal-Bench 2.0 recipe in AweAgent](https://github.com/AweAI-Team/AweAgent/tree/main/recipes/terminal_bench_v2). It provides the minimal bash, file-editing, and finish-tool scaffold used for trajectory distillation and Terminal-Bench 2.0 evaluation, with execution aligned to Harbor.
+CalibForge-Eval is released as the [Terminal-Bench 2.0 recipe in AweAgent](https://github.com/AweAI-Team/AweAgent/tree/main/recipes/terminal_bench_v2). It provides the minimal bash, file-editing, and finish-tool scaffold used for trajectory distillation and Terminal-Bench 2.0 evaluation.
 
 After installing and configuring AweAgent, run it on a Harbor-style task directory with:
 
@@ -102,20 +102,14 @@ See the recipe documentation for model configuration, concurrent execution, and 
 
 ## 🤖 Results
 
-All task collections were re-distilled with the same teacher protocol and trained using the same recipe within each backbone. Selected strongest baselines are shown below.
+Training on CalibForge trajectories consistently improves both backbones across terminal and out-of-distribution software-engineering benchmarks.
 
-| Training data | TB2 Acc. (%) ↑ | SWE-Pro Resolved (%) ↑ | Doc2Repo Pass Rate (%) ↑ |
+| Model | TB2 Acc. (%) ↑ | SWE-Pro Resolved (%) ↑ | Doc2Repo Pass Rate (%) ↑ |
 |---|---:|---:|---:|
-| **Qwen3-30B-A3B-Instruct base** | 7.87 | 3.26 | 5.94 |
-| TermiGen | 23.60 | 27.77 | 34.11 |
-| TerminalTraj | 26.22 | 26.28 | 24.36 |
-| **CalibForge-30B-A3B** | **32.58** | **30.94** | **35.98** |
-| **Qwen3.5-35B-A3B base** | 39.10 | 41.29 | 44.92 |
-| TermiGen | 40.07 | 43.37 | 44.54 |
-| TerminalTraj | 40.82 | 43.91 | 47.20 |
-| **CalibForge-35B-A3B** | **47.57** | **44.32** | **48.77** |
+| Qwen3-30B-A3B-Instruct → **CalibForge-30B-A3B** | 7.87 ± 0.00 → **32.58 ± 1.12** (**+24.71**) | 3.26 → **30.94** (**+27.68**) | 5.94 ± 0.88 → **35.98 ± 1.82** (**+30.04**) |
+| Qwen3.5-35B-A3B → **CalibForge-35B-A3B** | 39.10 ± 1.09 → **47.57 ± 0.99** (**+8.47**) | 41.29 → **44.32** (**+3.03**) | 44.92 ± 1.14 → **48.77 ± 0.90** (**+3.85**) |
 
-Terminal-Bench 2.0 and Doc2Repo results are means over three runs; SWE-bench Pro is evaluated once.
+Terminal-Bench 2.0 and Doc2Repo results are reported as mean ± SEM over three runs; SWE-bench Pro is evaluated once.
 
 ### Effect of Solver Calibration
 
@@ -128,6 +122,6 @@ Under a matched 1,300-task setting, adversarial solver calibration provides subs
 | Multi-solver calibration | 2,425 | 29.21 | +6.74 |
 | Contrastive solver calibration | 2,561 | **31.09** | **+8.62** |
 
-## 🎗️ Acknowledgements
+## 🎗️ Supporters
 
-CalibForge is developed by researchers from the Gaoling School of Artificial Intelligence at Renmin University of China, independent researchers, and the AweAI Team.
+This project is mainly developed and maintained by students from [RUC AI Box](https://github.com/RUCAIBox).
