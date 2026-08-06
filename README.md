@@ -128,22 +128,6 @@ Under a matched 1,300-task setting, adversarial solver calibration provides subs
 | Multi-solver calibration | 2,425 | 29.21 | +6.74 |
 | Contrastive solver calibration | 2,561 | **31.09** | **+8.62** |
 
-## 📖 Citation
-
-If you find CalibForge useful for your research, please cite our paper:
-
-```bibtex
-@article{meng2026calibforge,
-  title   = {CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks},
-  author  = {Meng, Fanzhe and Chen, Guoxin and Zhao, Jiale and Sun, Shuang and Lin, Zhiyu and Zhao, Wayne Xin and Song, Ruihua and Wen, Ji-Rong and Jia, Kai},
-  year    = {2026}
-}
-```
-
-## 📄 License
-
-Please refer to the license and usage terms on the corresponding Hugging Face dataset page. Third-party software and artifacts contained in individual task environments remain subject to their original licenses.
-
 ## 🎗️ Acknowledgements
 
 CalibForge is developed by researchers from the Gaoling School of Artificial Intelligence at Renmin University of China, independent researchers, and the AweAI Team.
