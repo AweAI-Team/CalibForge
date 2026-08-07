@@ -10,10 +10,14 @@
 
 ## 🔥 Highlights
 
-- **5,431 calibrated terminal tasks** spanning 16 domains and 3,885 distinct capability tags.
+- **5,431 calibrated terminal tasks** spanning 16 domains.
 - **Adversarial solver calibration** revises tasks toward a solver-relative learnable zone instead of retaining every task that is merely executable.
 - **Two complementary calibration strategies:** multi-solver calibration targets disagreement across heterogeneous solvers, while contrastive calibration targets a designated strong-pass/weak-fail relation.
 - **Strong and transferable performance:** CalibForge-30B-A3B and CalibForge-35B-A3B reach **32.58%** and **47.57%** on Terminal-Bench 2.0, with gains extending to SWE-bench Pro and Doc2Repo.
+
+## 📣 News
+- **2026-06-10** 📝 Our paper [**"CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks"**](https://arxiv.org/pdf/2608.06352) is now available on arXiv.
+
 
 ## Overview
 
