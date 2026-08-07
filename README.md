@@ -1,12 +1,13 @@
 # CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks
 
-<p align="center">
-  <a href="https://huggingface.co/datasets/AweAI-Team/CalibForge">🤗 Data</a>
-  &nbsp;·&nbsp;
-  <a href="#-models">🤗 Models</a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/AweAI-Team/AweAgent/tree/main/recipes/terminal_bench_v2">🤖 CalibForge-Eval</a>
-</p>
+<div align="center">
+
+[![arXiv](https://img.shields.io/badge/arXiv-2608.06352-b31b1b.svg)](https://arxiv.org/abs/2608.06352)
+[![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-blue)](https://huggingface.co/datasets/AweAI-Team/CalibForge)
+[![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](#-models)
+[![CalibForge Eval](https://img.shields.io/badge/GitHub-CalibForge--Eval-181717?logo=github&logoColor=white)](https://github.com/AweAI-Team/AweAgent/tree/main/recipes/terminal_bench_v2)
+
+</div>
 
 ## 🔥 Highlights
 
@@ -16,7 +17,7 @@
 - **Strong and transferable performance:** CalibForge-30B-A3B and CalibForge-35B-A3B reach **32.58%** and **47.57%** on Terminal-Bench 2.0, with gains extending to SWE-bench Pro and Doc2Repo.
 
 ## 📣 News
-- **2026-06-10** 📝 Our paper [**"CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks"**](https://arxiv.org/pdf/2608.06352) is now available on arXiv.
+- **2026-08-07** 📝 Our paper [**"CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks"**](https://arxiv.org/pdf/2608.06352) is now available on arXiv.
 
 
 ## Overview
