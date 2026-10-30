@@ -17,6 +17,7 @@
 - **Strong and transferable performance:** CalibForge-30B-A3B and CalibForge-35B-A3B reach **32.58%** and **47.57%** on Terminal-Bench 2.0, with gains extending to SWE-bench Pro and Doc2Repo.
 
 ## 📣 News
+- **2026-10-30** 📝 We have updated our [**CalibForge paper**](https://arxiv.org/pdf/2608.06352v2) with new RL experiments on solver-calibrated tasks.
 - **2026-08-07** 📝 Our paper [**"CalibForge: Adversarial Solver Calibration for Scaling Learnable Terminal Tasks"**](https://arxiv.org/pdf/2608.06352) is now available on arXiv.
 
 
@@ -44,8 +45,6 @@ The full release is hosted on [Hugging Face](https://huggingface.co/datasets/Awe
 | Multi-solver | 1,263 | At least one solver passes and at least one solver fails |
 | Contrastive | 4,168 | Stronger solver passes and weaker solver fails |
 | **Total** | **5,431** | Solver-relative learnable zone |
-
-The release also includes successful trajectories distilled under the shared [CalibForge-Eval](https://github.com/AweAI-Team/AweAgent/tree/main/recipes/terminal_bench_v2) protocol.
 
 ## 📂 Task Format
 
@@ -86,10 +85,10 @@ Refer to the dataset card for the released files and loading instructions.
 
 We release two models trained on trajectories distilled from CalibForge tasks:
 
-| Model | Backbone | Terminal-Bench 2.0 |
+| Model | Backbone | Terminal-Bench 2.0 | Terminal-Bench 2.1 |
 |---|---|---:|
-| [CalibForge-30B-A3B](https://huggingface.co/AweAI-Team/CalibForge-30B-A3B) | Qwen3-30B-A3B-Instruct | 32.58% |
-| [CalibForge-35B-A3B](https://huggingface.co/AweAI-Team/CalibForge-35B-A3B) | Qwen3.5-35B-A3B | 47.57% |
+| [CalibForge-30B-A3B](https://huggingface.co/AweAI-Team/CalibForge-30B-A3B) | Qwen3-30B-A3B-Instruct | 32.58% | 31.84% |
+| [CalibForge-35B-A3B](https://huggingface.co/AweAI-Team/CalibForge-35B-A3B) | Qwen3.5-35B-A3B | 47.57% | 47.57% |
 
 ## 🤖 CalibForge-Eval
 
@@ -109,23 +108,29 @@ See the recipe documentation for model configuration, concurrent execution, and 
 
 Training on CalibForge trajectories consistently improves both backbones across terminal and out-of-distribution software-engineering benchmarks.
 
-| Model | TB2 Acc. (%) ↑ | SWE-Pro Resolved (%) ↑ | Doc2Repo Pass Rate (%) ↑ |
+| Model | TB2.1 Acc. (%) ↑ | SWE-Pro Resolved (%) ↑ | Doc2Repo Pass Rate (%) ↑ |
 |---|---:|---:|---:|
-| Qwen3-30B-A3B-Instruct → **CalibForge-30B-A3B** | 7.87 ± 0.00 → **32.58 ± 1.12** (**+24.71**) | 3.26 → **30.94** (**+27.68**) | 5.94 ± 0.88 → **35.98 ± 1.82** (**+30.04**) |
-| Qwen3.5-35B-A3B → **CalibForge-35B-A3B** | 39.10 ± 1.09 → **47.57 ± 0.99** (**+8.47**) | 41.29 → **44.32** (**+3.03**) | 44.92 ± 1.14 → **48.77 ± 0.90** (**+3.85**) |
-
-Terminal-Bench 2.0 and Doc2Repo results are reported as mean ± SEM over three runs; SWE-bench Pro is evaluated once.
+| Qwen3-30B-A3B-Instruct → **CalibForge-30B-A3B** | 7.87 ± 0.00 → **31.84 ± 1.35** (**+23.97**) | 2.87 → **29.41** (**+26.54**) | 5.94 ± 0.88 → **35.98 ± 1.82** (**+30.04**) |
+| Qwen3.5-35B-A3B → **CalibForge-35B-A3B** | 35.58 ± 0.37 → **47.57 ± 0.37** (**+11.99**) | 41.18 → **44.32** (**+3.14**) | 44.92 ± 1.14 → **48.77 ± 0.90** (**+3.85**) |
 
 ### Effect of Solver Calibration
 
 Under a matched 1,300-task setting, adversarial solver calibration provides substantially larger gains than ordinary single-solver feedback.
 
-| Construction mode | SFT trajectories | TB2 Acc. (%) ↑ | Δ vs. no solver |
+| Construction mode | SFT trajectories | TB2.1 Acc. (%) ↑ | Δ vs. no solver (pp) |
 |---|---:|---:|---:|
-| No solver | 2,466 | 22.47 | – |
-| Single solver | 2,493 | 24.34 | +1.87 |
-| Multi-solver calibration | 2,425 | 29.21 | +6.74 |
-| Contrastive solver calibration | 2,561 | **31.09** | **+8.62** |
+| No solver | 2,466 | 17.60 ± 0.99 | – |
+| Single solver | 2,493 | 23.97 ± 1.98 | +6.37 |
+| Multi-solver calibration | 2,425 | 29.21 ± 1.12 | +11.61 |
+| Contrastive solver calibration | 2,561 | **30.71 ± 2.28** | **+13.11** |
+
+### Reinforcement Learning on Synthesized Tasks
+
+We also train Qwen3.5-35B-A3B with GRPO on matched 1,024-task subsets from CalibForge, No Solver, and Single Solver.
+
+<p align="center">
+  <img src="assets/grpo.png" width="100%" alt="Overview of CalibForge" />
+</p>
 
 ## 🎗️ Supporters
 
